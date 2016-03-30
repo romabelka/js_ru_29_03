@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Comments from './Comments'
 
 class Article extends Component {
 
@@ -8,7 +9,9 @@ class Article extends Component {
 
     render() {
         const { title, text} = this.props.article
-        const body = this.state.isOpen ? <section>{text}</section> : null
+	    const article = this.props.article
+        const body = this.state.isOpen ?
+            <section>{text} <br/> <Comments article = {article}/> </section> : null
         return (
             <div>
                 <h3 onClick = {this.handleClick}>{title}</h3>
