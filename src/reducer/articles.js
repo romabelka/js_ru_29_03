@@ -14,7 +14,7 @@ export default (articles = defaultState, action) => {
             ...articles,
             entities: articles.entities.filter((article) => article.id != data.id)
         }
-        case LOAD_ALL_ARTICLES + START: return {...articles, loading: true}
+        case LOAD_ALL_ARTICLES + START: return Object.assign({}, articles, {loading: true})
         case LOAD_ALL_ARTICLES + SUCCESS: return {entities: response, loaded: true}
     }
 
