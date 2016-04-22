@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Article from './Article'
+import Select from 'react-select'
+require('react-select/dist/react-select.css')
 
 class ArticleList extends Component {
     static propTypes = {
@@ -17,6 +19,11 @@ class ArticleList extends Component {
         const items = articles.map((article) => <li key = {article.id}><Article {...{ article }}/></li>)
         return (
             <ul>
+                <Select
+                    options = {articles}
+                    valueKey = "id"
+                    labelKey = "title"
+                />
                 {items}
             </ul>
         )
