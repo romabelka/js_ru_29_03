@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { deleteArticle, loadArticleById } from '../AC/articles'
 
 class Article extends Component {
     static propTypes = {
@@ -9,7 +11,7 @@ class Article extends Component {
     render() {
         return (
             <div>
-                <h3>{this.props.article.title}</h3>
+                <h3 onClick = {this.handleLoadArticle}>{this.props.article.title}</h3>
                 <a href = "#" onClick = {this.handleDelete}>delete article</a>
             </div>
         )
@@ -20,6 +22,11 @@ class Article extends Component {
         const { deleteArticle, article: { id }} = this.props
         deleteArticle(id)
     }
+
+    handleLoadArticle = (ev) => {
+        const { loadArticleById, article: { id }} = this.props
+        loadArticleById(id)
+    }
 }
 
-export default Article
+export default connect(null, { deleteArticle, loadArticleById })(Article)

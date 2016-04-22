@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { deleteArticle, loadAllArticles } from '../AC/articles'
+import { loadAllArticles } from '../AC/articles'
 import ArticleList from '../componentsNew/ArticleList'
 
 class ArticleListContainer extends Component {
@@ -21,5 +21,5 @@ export default connect(state => {
     const { articles } = state
     return { articles }
 }, {
-    deleteArticle, loadAllArticles
+    loadAllArticles
 })(ArticleListContainer)

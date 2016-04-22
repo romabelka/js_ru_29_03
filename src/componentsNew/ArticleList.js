@@ -4,7 +4,6 @@ import Article from './Article'
 class ArticleList extends Component {
     static propTypes = {
         articles: PropTypes.array,
-        deleteArticle: PropTypes.func
     };
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -12,8 +11,8 @@ class ArticleList extends Component {
     }
 
     render() {
-        const { articles, deleteArticle } = this.props
-        const items = articles.map((article) => <li key = {article.id}><Article {...{ deleteArticle, article }}/></li>)
+        const { articles } = this.props
+        const items = articles.map((article) => <li key = {article.id}><Article {...{ article }}/></li>)
         return (
             <ul>
                 {items}
