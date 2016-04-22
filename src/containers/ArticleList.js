@@ -19,7 +19,8 @@ class ArticleListContainer extends Component {
 
 export default connect(state => {
     const { articles } = state
-    return { articles }
+
+    return { articles: articles.entities, loading: articles.loading }
 }, {
     loadAllArticles
 })(ArticleListContainer)
