@@ -7,6 +7,10 @@ class ArticleList extends Component {
         deleteArticle: PropTypes.func
     };
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.articles != this.props.articles
+    }
+
     render() {
         const { articles, deleteArticle } = this.props
         const items = articles.map((article) => <li key = {article.id}><Article {...{ deleteArticle, article }}/></li>)
